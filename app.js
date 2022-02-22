@@ -3,6 +3,7 @@ const querystring = require('querystring');
 const path = require('path')
 var mysql = require("mysql");
 var bodyParser = require('body-parser');
+const dbManage = require('./app/dbManage');
 
 const app = express();
 const port = 8888;
@@ -37,21 +38,11 @@ app.post('/saveFirebaseLogInfo', function (req, res) {
     });
 });
 
-const insertEmployees = (data) => {
-    const mysql = require('mysql');
-    const con = mysql.createConnection({
-        host: "15.15.161.127",
-        user: "hpsa_tester",
-        password: "TEST@rocks_335",
-        database: "hpsa_test_data"
-    });
-    con.connect(function (err) {
-        if (err) throw err;
-        const sql = "insert into firebase values(NULL, '"+data['deviceId']+"', '"+data['deviceName']+"', '"+data['deviceType']+"', '"+data['appVersion']+"', '"+data['eventMessage']+"')";
-        con.query(sql, function (err, result) {
-            if (err) console.log(sql);
-            console.log("1 record inserted");
-        });
+const insertEmployees = async (data) => {
+    const sql = "insert into firebase values(NULL, '"+data['deviceId']+"', '"+data['deviceName']+"', '"+data['deviceType']+"', '"+data['appVersion']+"', '"+data['eventMessage']+"')";
+    dbManage.query(sql, function (err, result) {
+        if (err) console.log(sql);
+        console.log("1 record inserted");
     });
 }
 
