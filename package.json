@@ -1,0 +1,16 @@
+{
+  "name": "firebase_log_sys",
+  "version": "1.0.0",
+  "description": "To save firebase log information on it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor.Xue",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "querystring": "^0.2.1"
+  }
+}
