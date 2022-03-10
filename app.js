@@ -39,7 +39,7 @@ app.post('/saveFirebaseLogInfo', function (req, res) {
 });
 
 const insertEmployees = async (data) => {
-    const sql = "insert into firebase values(NULL, '"+data['deviceId']+"', '"+data['deviceName']+"', '"+data['deviceType']+"', '"+data['appVersion']+"', '"+data['eventMessage']+"')";
+    const sql = "insert into firebase values(NULL, '"+data['deviceId']+"', '"+data['deviceName']+"', '"+data['deviceType']+"', '"+data['appVersion']+"', '"+data['eventMessage']+"', '"+data['operationDate']+"')";
     dbManage.query(sql, function (err, result) {
         if (err) console.log(sql);
         console.log("1 record inserted");
